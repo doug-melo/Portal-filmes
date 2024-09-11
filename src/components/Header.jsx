@@ -1,15 +1,16 @@
+import { NavLink } from "react-router-dom"
 export default function Header(){
     return(
         <>
-            <header>
+            <header className="h-20 flex bg-indigo-900 text-white justify-between w items-center p-8">
                 <div>
-                    <h1>Portal Filmes</h1>
+                <h1 className="">Portal Filmes</h1>
                 </div>
                 <nav>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Filmes</a></li>
-                        <li><a href="">Gêneros</a></li>
+                    <ul className="flex gap-5">
+                        <li className="hover:underline"><NavLink to={"/"}>Home</NavLink></li>
+                        <li className="hover:underline"><NavLink to={"/movies"}>Filmes</NavLink></li>
+                        <li className="hover:underline"><NavLink to={"/genre"}>Gêneros</NavLink></li>
                     </ul>
                 </nav>
             </header>
