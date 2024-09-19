@@ -8,9 +8,9 @@ export default function Header(){
                 </div>
                 <nav>
                     <ul className="flex gap-5">
-                        <li className="hover:underline"><NavLink to={"/"}>Home</NavLink></li>
-                        <li className="hover:underline"><NavLink to={"/movies"}>Filmes</NavLink></li>
-                        <li className="hover:underline"><NavLink to={"/genre"}>Gêneros</NavLink></li>
+                        <li className=""><NavLink to={"/"}>Home</NavLink></li>
+                        <li><NavLink to={"/movies"}>Filmes</NavLink></li>
+                        <li><NavLink to={"/genre"}>Gêneros</NavLink></li>
                     </ul>
                 </nav>
             </header>

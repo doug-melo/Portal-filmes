@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom"
-export default function MovieDetailPage(){
+import Movie from "../data/movies.json"
+export default function MovieDetailPage(id, titulo, ano_lancamento, descricao){
 
     const { id } = useParams()
     return(
         <>
-        <h1>Movie Detail Page</h1>
-        <p>O id da página é {id}</p>
+        <h1>Titulo</h1>
+        <a href="">Assistir</a>
         {/* Exibe detalhes de um filme específico. */}
         </>
     )
