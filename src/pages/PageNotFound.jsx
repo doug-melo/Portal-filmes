@@ -1,6 +1,6 @@
 export default function PageNotFound() {
     return ( 
-        <p>Página não encontrada</p>
+        <p className="text-white">Página não encontrada</p>
      );
 }
 

@@ -1,8 +1,16 @@
+import { useParams } from "react-router-dom"
+import Movie from "../data/movies.json"
+import MovieCard from "./MovieCard"
 export default function GenreCard() {
+    const { id } = useParams()
     return(
-        <>
-        <h1>Genre Card</h1>
-        {/* Modelo de card que será utilizado para os gêneros */}
-        </>
+        <div>
+            {
+                Movie.filter(filme => filme.genero == id)
+                .map(filme => (
+                    <MovieCard key={filme.key} {...filme}/>
+                ))
+            }
+        </div>
     )
 }

@@ -1,10 +1,16 @@
+import { Link } from "react-router-dom"
+import Movie from "../data/genres.json"
 export default function GenreListPage(){
     return(
         <>
-        <h1>Genre Page</h1>
-          {/*Lista todos os gêneros disponíveis em um formato de card,
-        cada um com uma cor de fundo diferente, com um link 
-        para uma página que exibe filmes pertencentes a esse gênero. */}
+        {
+                Movie
+                .map(genero => (
+                    <div className="text-white">
+                        <Link to={`/genre/${genero.genero}`}>{genero.genero}</Link>
+                    </div>
+                ))
+            }
         </>
     )
 }
