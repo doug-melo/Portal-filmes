@@ -11,7 +11,8 @@ export default function MovieDetailPage(){
         {
             Movie
             .filter((Movie) => Movie.id.toString() === id)
-            .map((Movie) => <div className="text-white w-3/4 mx-auto my-0 mt-24 content-center">
+            .map((Movie) => 
+            <div className="text-white w-3/4 mx-auto my-0 mt-24 content-center">
                 <h1 className="text-5xl text-center">{Movie.titulo}</h1>
                 <p className="text-center">{Movie.ano_lancamento}</p>
                 <img className="w-4/5 h-1/4 object-cover "src={`/${Movie.imagem_destaque}`} alt="" />
