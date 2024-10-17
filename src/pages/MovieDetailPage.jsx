@@ -1,27 +1,26 @@
-import { useParams } from "react-router-dom"
-import Movie from '../data/movies.json'
+import { useParams,  } from "react-router-dom"
+import { useState, useEffect  } from "react"
 
 export default function MovieDetailPage(){
     
     const { id } = useParams()
-    console.log(Movie)
+
+    const [filmes, setFilmes] = useState([])
+
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=d9a8d36242026ab03fa115c720fa623a&language=pt-BR`)
+        .then(res => res.json())
+        .then(res => 
+            setFilmes(res))
+        .catch(erro => console.log(erro))
+    }, [])
+
     return(
         <>
-
-        {
-            Movie
-            .filter((Movie) => Movie.id.toString() === id)
-            .map((Movie) => 
-            <div className="text-white w-3/4 mx-auto my-0 mt-24 content-center">
-                <h1 className="text-5xl text-center">{Movie.titulo}</h1>
-                <p className="text-center">{Movie.ano_lancamento}</p>
-                <img className="w-4/5 h-1/4 object-cover "src={`/${Movie.imagem_destaque}`} alt="" />
-                <p className="text-justify w-3/4">{Movie.sinopse}</p>
-                <p>{Movie.diretor}</p>
-                <a className="bg-red-600 p-3 m-3 flex al w-2/4 h-12" href={`https://google.com.br/search?q=${Movie.titulo}`} target="_blank">Assistir</a>
-            </div>   
-        )
-        }
+        <div className="w-4/5 mx-auto my-0 mt-16">
+            <h1 className='text-white' >{filmes.title}</h1>
+            <img src={`https://image.tmdb.org/t/p/w92${filmes.poster_path}`} alt="" />
+        </div>
         </>
     )
 }
